@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const UserContext = React.createContext();
 
 export const UserProvider = ({children}) => {
 
-    const currentUser = {
-        name: "Duane",
-        interests: ["Coding", "Biking", "Words ending in 'ing'"],
-      };
+    const [user, setUser] = useState(null)
 
-    return <UserContext.Provider value={currentUser}>{children}</UserContext.Provider>;
+    return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>;
 }
